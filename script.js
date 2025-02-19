@@ -9,6 +9,8 @@ const progressBar = document.querySelector('.progress');
 const startButton = document.getElementById('start');
 const resetButton = document.getElementById('reset');
 
+const beepSound = new Audio('beep.mp3'); // Ensure this file exists in your project
+
 function startTimer(duration) {
     let startTime = Date.now();
     let endTime = startTime + duration * 1000;
@@ -19,6 +21,7 @@ function startTimer(duration) {
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
+            beepSound.play(); // Play beep sound when time is up
             alert("Time's up!");
         }
     }, 1000);
